@@ -80,8 +80,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x5q-2d-lJq">
-                                <rect key="frame" x="16" y="40" width="343" height="416"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x5q-2d-lJq">
+                                <rect key="frame" x="16" y="84" width="343" height="410"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WVK-2x-KW1">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -99,8 +99,8 @@
                                             <outletCollection property="gestureRecognizers" destination="MsI-6H-s1D" appends="YES" id="OR3-fZ-dCN"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-OP-Bi4" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="45.5" y="366" width="252" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-OP-Bi4" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
+                                        <rect key="frame" x="45.5" y="366" width="252" height="44"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -117,15 +117,21 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="u8U-lh-XpS">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bJe-AC-mXH"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Zwk-b3-l5N"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Zwk-b3-l5N">
+                            <connections>
+                                <segue destination="Agc-Pe-Hqf" kind="unwind" unwindAction="unwindToMealListWithSender:" id="BBN-bs-SeG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="WVK-2x-KW1" id="Plh-io-nuu"/>
                         <outlet property="photoImageView" destination="tot-23-c4s" id="H8H-wb-eSO"/>
                         <outlet property="ratingControl" destination="FJH-OP-Bi4" id="cbH-1i-ipD"/>
+                        <outlet property="saveButton" destination="Zwk-b3-l5N" id="Lto-KJ-9Aw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Agc-Pe-Hqf" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="MsI-6H-s1D">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="7Ia-pn-F4s"/>
